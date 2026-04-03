@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: white;
+  color: black;
+  overflow-x: hidden;
+}
+
+/* páginas */
+.page {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.active {
+  display: flex;
+}
+
+/* botones */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  background: #ff4b6e;
+  color: white;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff2e5f;
+  transform: scale(1.05);
+}
+
+/* carta */
+.letter {
+  width: 85%;
+  max-width: 500px;
+  max-height: 60vh;
+  background: #fffafa;
+  color: black;
+  border-radius: 20px;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid #ffebee;
+}
+
+/* corazones */
+.heart {
+  position: fixed;
+  top: -20px;
+  font-size: 20px;
+  animation: caer 5s linear infinite;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes caer {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<div class="page active" id="page1">
+  <video width="280" autoplay muted loop style="border-radius:20px;">
+    <source src="videoMp43.mp4" type="video/mp4">
+  </video>
+  <h1>Holaaa, Mi Amolchitooo 🥺💗</h1>
+  <p>Le escribí una cartitaaa 🥺💌</p>
+  <button onclick="nextPage(2)">Vea la cartita 💌</button>
+</div>
+
+<div class="page" id="page2">
+  <video width="280" autoplay muted loop style="border-radius:20px;">
+    <source src="videMp41.mp4" type="video/mp4">
+  </video>
+  <h2>Primero quiero decirle algo...</h2>
+  <p style="padding: 0 20px;">
+    Quiero que me peldone por lo ocurrido ayer 🥺🤎<br><br>
+    Me siento muy mal por haber causado esta confusión y haber ocasionado que ño me crea 😔
+  </p>
+  <button onclick="nextPage(3)">Presione aquí 💌</button>
+</div>
+
+<div class="page" id="page3">
+  <video width="200" autoplay muted loop style="border-radius:20px; margin-bottom: 10px;">
+    <source src="video2.mp4" type="video/mp4">
+  </video>
+  
+  <div class="letter">
+    <p>
+      Peldóneme por la confusión que causé Mi Amolchitoooo 🥺🙏<br><br>
+      Sé que todo se entendió raro y entiendo que ño me creyera, pero de verdad ño hay nada más detrás de lo que pasó 😔<br><br>
+      Me equivoqué al no explicarme bien desde el inicio. Sé que todo se vio mal y entiendo por qué se sintió ashí, pero lo que intenté explicarle ño era lo que terminó pareciendo 😔. Me expresé mal y por esa confusión ahora piensa algo que ño es, y eso me duele muchísimo 😭<br><br>
+      Yo solo quelia explicarle lo que hice durante ese tiempo, para que estuvieramos bien😔. Quiero que sepa algo con toda la sinceridad de mi corazóncitooo. Ño hay nadie másh, ni nunca lo habrá 💗. Yo solo quiero estar con usted, solo con usted. No hay nadie más, ni me interesa nadie máshh 🥺💗<br><br>
+      Usted es la mujer que quiero en mi vida, es la mujer de mis sueños, es mi presente y mi futuro 🥺🤎nunca habrá nadie mash y ño es algo que digo por decir, es algo que de verdad quiero que sea así, con toda seguridad 🥺<br><br>
+      Ño quelo perderla. Me importa demasiado, es mi razón de vivir, es todo para mí 😭<br>
+      Lo único que quelo es que se sienta tranquila conmigo, que pueda confiar en mí 🙏. Y haré todo lo que esté en mis manos para que se sienta segura siempre 💗.<br><br>
+      Peldoneme de verdad, con lo más sincero de mi corazoncito. Yo La Amo Demasiadooo Mi Bebeshitaaa Peshosshaaaa 🥺💗.
+    </p>
+  </div> <button onclick="nextPage(4)">Continúa 💌</button>
+</div>
+
+<div class="page" id="page4">
+  <video width="280" autoplay muted loop style="border-radius:20px;">
+    <source src="videoMp42.mp4" type="video/mp4">
+  </video>
+  <h1>¿Me peldonaaa Mi Golditaaa Peshoshoshaaa? 🥺💗</h1>
+  <p>Solo quiero que estemos bien Mi Amolchitoooo...<br>Laa amooo demasiado Mi Amorchitoo de Mi Alma 😭💗</p>
+  
+  <div style="display: flex; gap: 20px;">
+    <button id="siBtn" onclick="aceptar()">Sí ❤️</button>
+    <button id="noBtn" onmouseover="moverNo()">No 💔</button>
+  </div>
+</div>
+
+<script>
+function nextPage(num){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page'+num).classList.add('active');
+}
+
+let scale = 1;
+let mensajes = [
+  "¿Está segura? 🥺",
+  "Perdonemeeee 😔",
+  "Pol favol 🙏",
+  "Vamos mi amorchitooo 😭",
+  "ño sea aashhhí, Peldonemee 🥺💗",
+  "La amooo muchisimoo 😭💗",
+  "Poq ñoo? 😭",
+   "Muy titee 🥺",
+   "Ño quele que estemosh happys?",
+   "Hay que estar happy Mi Amolchitooo 🥺",
+   "coffaaa 😭",
+   "Peldonemee Mi Colachonshitoo de Mi Vidaa 🥺",
+   "eshoo le hace daño al bebé. osea yo JAJAJAJA 🥺",
+   "Peldonemee, ya ño va volver a pasar 🥺",
+   "Ya hay que casarnos Mi Amolchitooo 🙏",
+   "Ashii ya ño peleamos y estamos happys 🥺",
+   "Por siempree Mi Amolchitooo 🥺",
+   "La Amoo Demasiadoo Mi Amolchitooo 😭💗",
+   "Hablemosh Mi Amolchitooo",
+   "Me encanta demasiadoo Mi Bebeshitaaa Lindishimaaa 💗🥺",
+   "Hay que estar juntoss toda la vidotaa Mi Colachonshitooo 🫦",
+   "Peldonemee, ya ño va volver a pasar, te lo prometo 🥺",
+   "Que licooo Me va encantar estar con usted toda la vidotaaaa 🫦",
+   "Se imagina como podriamos estar en 10 años Mi Amolchitooo? 🥺",
+   "Que licoo luego 20, 30, 40 y ashii muchotess años juntosss",
+   "Todaa la vidotaa Juntoshh 🥺",
+   "Que lindoteee formar una familia juntoshh, que licoo 💗",
+  "Me lo imaginee y me pusee a chillar",
+  "Peldonemee Mi Amor de Mi Vidaa, Mi Bebeshitaa Peshoshaaa",
+  "Dueñaa de mis sueñoss, de mis suspiross, de mis pensamientosss",
+  "Dueñaa de Mi Velitaaaa 🥺",
+  "Shiii? Peldonemeee 🥺"
+  ];
+let index = 0;
+
+function moverNo(){
+  const no = document.getElementById('noBtn');
+  const si = document.getElementById('siBtn');
+  no.style.position = "absolute";
+  no.style.left = Math.random() * 70 + "%";
+  no.style.top = Math.random() * 70 + "%";
+  scale += 0.2;
+  si.style.transform = `scale(${scale})`;
+  if(index < mensajes.length){
+    no.innerText = mensajes[index];
+    index++;
+  }
+}
+
+function aceptar() {
+    document.body.innerHTML = `
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;color:black;padding:20px;flex-direction:column;">
+        <video width="300" autoplay loop style="border-radius:20px; margin-bottom:20px;">
+            <source src="videoMp45.mp4" type="video/mp4">
+        </video>
+        <p style="max-width: 600px; line-height: 1.8; font-size: 1.2em;">
+            Sabía que me iba a perdonar Mi Colachonshitoooo 😭💗. ño volverá a pasar, se lo prometooo por Tommm 🙏. La Amooo Muchísimo Mi Bebeshitaa Peshoshaaa 💗🥺. La Amooo como ño tiene ideaaa Mi Cuchurruminaa, le voy a dar muchoss besotesss en las patas 👄. Estoy obsesionado de usted Mi Colachonshitoo, que licoo que sea mi noviecitaa 🫦. Es la mejor noviectitaa del mundooo, del universooo, que licoo. Como La Amooooo 😭💗.
+        </p>
+    </div>`;
+}
+
+setInterval(() => {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerText = '💗';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}, 300);
+</script>
+
+</body>
+</html>
